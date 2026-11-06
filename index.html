@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Vibe Coding Hub</title>
-    <!-- 깔끔한 웹 폰트 (Pretendard) 적용 -->
+    <title>My Vibe Coding Hub (Editable)</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     
     <style>
@@ -59,14 +58,12 @@
             padding: 0 20px 80px;
         }
 
-        /* 반응형 그리드 */
         .app-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        /* 앱 카드 디자인 */
         .app-card {
             background-color: var(--surface-color);
             border: 1px solid var(--card-border);
@@ -83,7 +80,6 @@
             border-color: #3a3a3a;
         }
 
-        /* 썸네일 (기본 그라데이션) */
         .thumbnail {
             width: 100%;
             height: 200px;
@@ -96,7 +92,6 @@
         .thumb-3 { background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
         .thumb-4 { background: linear-gradient(to right, #fa709a 0%, #fee140 100%); }
 
-        /* 카드 내용 */
         .card-content {
             padding: 24px;
             flex-grow: 1;
@@ -117,24 +112,19 @@
             flex-grow: 1;
         }
 
-        /* 기술 스택 태그 */
-        .tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        /* 텍스트 편집 가능한 요소 시각적 피드백 */
+        [contenteditable="true"] {
+            outline: none;
+            border-bottom: 1px dashed transparent;
+            transition: border-bottom 0.2s;
+            cursor: text;
         }
 
-        .tag {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
+        [contenteditable="true"]:hover,
+        [contenteditable="true"]:focus {
+            border-bottom: 1px dashed var(--accent-color);
         }
 
-        /* 앱 실행 버튼 */
         .launch-btn {
             display: inline-block;
             background-color: var(--accent-color);
@@ -146,13 +136,13 @@
             font-weight: 600;
             transition: background-color 0.2s ease;
             width: 100%;
+            margin-top: auto; /* 버튼을 항상 카드 하단에 고정 */
         }
 
         .launch-btn:hover {
             background-color: var(--accent-hover);
         }
 
-        /* 모바일 최적화 */
         @media (max-width: 768px) {
             header { padding: 60px 20px 40px; }
             header h1 { font-size: 2rem; }
@@ -162,60 +152,45 @@
 <body>
 
     <header>
-        <h1>Vibe Coding Hub</h1>
-        <p>AI와의 협업을 통해 아이디어를 현실로 구현한 나만의 웹앱 컬렉션입니다.</p>
+        <h1 contenteditable="true">Vibe Coding Hub</h1>
+        <p contenteditable="true">AI와의 협업을 통해 아이디어를 현실로 구현한 나만의 웹앱 컬렉션입니다.</p>
     </header>
 
     <main class="container">
         <div class="app-grid">
             
-            <!-- 앱 카드 1 -->
             <article class="app-card">
-                <!-- 이미지가 있을 경우 아래 div를 <img src="경로" class="thumbnail"> 로 변경 -->
                 <div class="thumbnail thumb-1"></div>
                 <div class="card-content">
-                    <h2 class="card-title">AI 프롬프트 생성기</h2>
-                    <p class="card-desc">사용자의 짧은 아이디어를 구체적이고 체계적인 AI 프롬프트로 변환해주는 유틸리티 툴입니다.</p>
-                    <a href="https://script.google.com/macros/s/AKfycbx5FbTQvcrPaQa31lhYVDnK2Q3FOxrcSkKkyVCcLTCtur7tNHOSzuanCnkLXtae38lB/exec" target="_blank" class="launch-btn">앱 실행하기</a>
-                </div>
-            </article>
-
-            <!-- 앱 카드 2 -->
-            <article class="app-card">
-                <div class="thumbnail thumb-2"></div>
-                <div class="card-content">
-                    <h2 class="card-title">포모도로 타이머</h2>
-                    <p class="card-desc">업무 효율을 높여주는 커스텀 뽀모도로 타이머 및 통계 기록 앱입니다.</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Vercel</span>
-                    </div>
+                    <h2 class="card-title" contenteditable="true">AI 프롬프트 생성기</h2>
+                    <p class="card-desc" contenteditable="true">사용자의 짧은 아이디어를 구체적이고 체계적인 AI 프롬프트로 변환해주는 유틸리티 툴입니다.</p>
                     <a href="#" target="_blank" class="launch-btn">앱 실행하기</a>
                 </div>
             </article>
 
-            <!-- 앱 카드 3 -->
+            <article class="app-card">
+                <div class="thumbnail thumb-2"></div>
+                <div class="card-content">
+                    <h2 class="card-title" contenteditable="true">포모도로 타이머</h2>
+                    <p class="card-desc" contenteditable="true">업무 효율을 높여주는 커스텀 뽀모도로 타이머 및 통계 기록 앱입니다.</p>
+                    <a href="#" target="_blank" class="launch-btn">앱 실행하기</a>
+                </div>
+            </article>
+
             <article class="app-card">
                 <div class="thumbnail thumb-3"></div>
                 <div class="card-content">
-                    <h2 class="card-title">일일 회고 일기장</h2>
-                    <p class="card-desc">오늘 하루의 감정과 주요 사건을 기록하고, 로컬 스토리지에 안전하게 저장하는 다이어리입니다.</p>
-                    <div class="tags">
-                        <span class="tag">Local Storage</span>
-                    </div>
+                    <h2 class="card-title" contenteditable="true">일일 회고 일기장</h2>
+                    <p class="card-desc" contenteditable="true">오늘 하루의 감정과 주요 사건을 기록하고, 안전하게 저장하는 다이어리입니다.</p>
                     <a href="#" target="_blank" class="launch-btn">앱 실행하기</a>
                 </div>
             </article>
             
-            <!-- 앱 카드 4 -->
             <article class="app-card">
                 <div class="thumbnail thumb-4"></div>
                 <div class="card-content">
-                    <h2 class="card-title">할 일 관리 (Todo)</h2>
-                    <p class="card-desc">드래그 앤 드롭으로 우선순위를 변경할 수 있는 직관적인 할 일 관리 칸반 보드입니다.</p>
-                    <div class="tags">
-                        <span class="tag">Vanilla JS</span>
-                    </div>
+                    <h2 class="card-title" contenteditable="true">할 일 관리 (Todo)</h2>
+                    <p class="card-desc" contenteditable="true">드래그 앤 드롭으로 우선순위를 변경할 수 있는 직관적인 할 일 관리 칸반 보드입니다.</p>
                     <a href="#" target="_blank" class="launch-btn">앱 실행하기</a>
                 </div>
             </article>
@@ -223,5 +198,26 @@
         </div>
     </main>
 
+    <!-- 웹페이지 텍스트 직접 수정 및 자동 저장 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const editableElements = document.querySelectorAll('[contenteditable="true"]');
+
+            editableElements.forEach((el, index) => {
+                const storageKey = 'portfolio-text-' + index;
+                const savedContent = localStorage.getItem(storageKey);
+                
+                // 1. 저장된 내용이 있으면 불러오기
+                if (savedContent) {
+                    el.innerText = savedContent;
+                }
+                
+                // 2. 텍스트를 수정할 때마다 자동으로 브라우저에 저장하기
+                el.addEventListener('input', () => {
+                    localStorage.setItem(storageKey, el.innerText);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
